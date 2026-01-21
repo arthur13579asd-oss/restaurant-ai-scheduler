@@ -328,6 +328,10 @@
 
         function init() {
             renderEmployeeList(); renderShiftList(); renderScheduleTable(); fetchWeather();
+            
+            // 每小時自動更新一次天氣
+            setInterval(fetchWeather, 3600000);
+
             document.addEventListener('click', (e) => {
                 if (!e.target.closest('.quick-add-btn') && !e.target.closest('.quick-add-menu')) {
                     document.getElementById('quick-add-menu').style.display = 'none';
@@ -620,7 +624,11 @@
 
         function changeCalendarMonth(offset) { calendarDate.setMonth(calendarDate.getMonth() + offset); renderCalendar(); }
         function switchTab(tabId) { document.querySelectorAll('.tab').forEach(t => t.classList.remove('active')); document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active')); event.target.classList.add('active'); document.getElementById(tabId).classList.add('active'); if (tabId === 'holidays') renderCalendar(); }
-        function changeWeek(offset) { currentWeekStart.setDate(currentWeekStart.getDate() + (offset * 7)); renderScheduleTable(); }
+        function changeWeek(offset) { 
+            currentWeekStart.setDate(currentWeekStart.getDate() + (offset * 7)); 
+            renderScheduleTable(); 
+            fetchWeather(); // 切換週次時自動更新天氣預報
+        }
         function saveSchedule() { localStorage.setItem('schedules', JSON.stringify(schedules)); alert('排班已儲存！'); }
 
         function exportPDF() {
