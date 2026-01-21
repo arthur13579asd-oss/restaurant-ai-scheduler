@@ -821,7 +821,7 @@
 
             <!-- 工時統計 -->
             <div class="card">
-                <h2>本週工時統計</h2>
+                <h2>每日總工時統計</h2>
                 <div class="stats-grid" id="statsGrid">
                     <!-- 動態生成 -->
                 </div>
@@ -1721,33 +1721,33 @@
                 weekDates.push(formatDate(d));
             }
 
-            const stats = {};
-            employees.forEach(emp => {
-                stats[emp.id] = { hours: 0, days: new Set() };
-            });
-
+            const dailyStats = {};
             weekDates.forEach(dateStr => {
-                if (!schedule[dateStr]) return;
-                shifts.forEach(shift => {
-                    const assigned = schedule[dateStr][shift.id] || [];
-                    const hours = getShiftHours(shift);
-                    assigned.forEach(empId => {
-                        if (stats[empId]) {
-                            stats[empId].hours += hours;
-                            stats[empId].days.add(dateStr);
-                        }
+                dailyStats[dateStr] = 0;
+                if (schedule[dateStr]) {
+                    shifts.forEach(shift => {
+                        const assigned = schedule[dateStr][shift.id] || [];
+                        const hours = getShiftHours(shift);
+                        dailyStats[dateStr] += assigned.length * hours;
                     });
-                });
+                }
             });
 
             const grid = document.getElementById('statsGrid');
-            grid.innerHTML = employees.map(emp => `
-                <div class="stat-card">
-                    <div class="name">${emp.name}</div>
-                    <div class="hours">${stats[emp.id].hours}<small>/${emp.maxHours}h</small></div>
-                    <div class="days">${stats[emp.id].days.size} 天</div>
-                </div>
-            `).join('');
+            grid.innerHTML = weekDates.map(dateStr => {
+                const isPeak = isPeakDay(dateStr);
+                const isHoliday = taiwanHolidays[dateStr];
+                const label = `週${getDayName(dateStr)} (${formatDateShort(dateStr)})`;
+                const hours = dailyStats[dateStr].toFixed(1);
+                
+                return `
+                    <div class="stat-card" style="${isHoliday ? 'border-top: 3px solid #e91e63;' : (isPeak ? 'border-top: 3px solid #ff9800;' : '')}">
+                        <div class="name">${label}</div>
+                        <div class="hours">${hours}<small>h</small></div>
+                        <div class="days" style="font-size: 11px; color: #888;">當日總工時</div>
+                    </div>
+                `;
+            }).join('');
         }
 
         // ==================== 排班操作 ====================
