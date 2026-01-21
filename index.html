@@ -1253,7 +1253,7 @@
             // 表身
             html += '<tbody>';
             shifts.forEach(shift => {
-                html += `<tr><td class="shift-label">${shift.name}<br><span style="font-size:11px;color:#888">${shift.start}-${shift.end}</span></td>`;
+                html += `<tr><td class="shift-label">${shift.name}<br><span style="font-size:11px;color:#888">${shift.start} - ${shift.end}</span></td>`;
 
                 weekDates.forEach(dateStr => {
                     const isPeak = isPeakDay(dateStr);
