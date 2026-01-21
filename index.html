@@ -65,7 +65,6 @@
 
         .quick-add-btn { width: 32px; height: 32px; border-radius: 50%; background: #667eea; color: white; display: flex; align-items: center; justify-content: center; cursor: pointer; margin: 8px auto 0; font-size: 1.2rem; transition: all 0.2s; box-shadow: 0 2px 4px rgba(102,126,234,0.3); }
         .quick-add-btn:hover { transform: scale(1.1); background: #5a67d8; }
-        .need-more { font-size: 0.75rem; color: #e53e3e; font-weight: 700; margin-top: 4px; background: #fff5f5; padding: 2px 6px; border-radius: 4px; }
 
         .quick-add-menu { position: absolute; background: white; border: 1px solid #e2e8f0; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: none; z-index: 1000; min-width: 160px; padding: 8px 0; }
         .quick-add-item { padding: 10px 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; font-weight: 600; }
@@ -105,6 +104,7 @@
         /* 班次列表 */
         .shift-item { display: flex; align-items: center; gap: 12px; padding: 12px; background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 8px; }
         .drag-handle { cursor: move; color: #cbd5e0; font-size: 1.2rem; }
+        .shift-item input[type="time"] { padding: 6px; border: 1px solid #ddd; border-radius: 4px; font-weight: 600; }
 
         /* 視圖切換按鈕 */
         .view-switcher { display: flex; gap: 2px; background: #edf2f7; padding: 4px; border-radius: 10px; width: fit-content; margin-bottom: 15px; }
@@ -145,8 +145,8 @@
                 </div>
 
                 <div class="view-switcher">
-                    <button id="view-shift" class="view-btn active" onclick="switchView('shift')">班次導向 (時間在左)</button>
-                    <button id="view-person" class="view-btn" onclick="switchView('person')">人員導向 (姓名在左)</button>
+                    <button id="view-shift" class="view-btn active" onclick="switchView('shift')">班次導向 (24H)</button>
+                    <button id="view-person" class="view-btn" onclick="switchView('person')">人員導向 (24H)</button>
                 </div>
                 
                 <div id="schedule-container"></div>
@@ -210,7 +210,7 @@
 
         <div id="shifts" class="tab-content">
             <div class="card">
-                <h2>班次設定 (可拖曳排序)</h2>
+                <h2>班次設定 (24H 格式 / 可拖曳排序)</h2>
                 <div id="shift-list" class="shift-list"></div>
                 <button class="btn btn-primary" style="margin-top: 15px;" onclick="addShift()">新增班次</button>
             </div>
@@ -425,7 +425,10 @@
                 shifts.forEach(shift => {
                     const assigned = schedules[`${dateStr}_${shift.id}`] || [];
                     let sH = parseInt(shift.startTime.split(':')[0]), eH = parseInt(shift.endTime.split(':')[0]);
-                    if (eH < sH) eH += 24; dailyHours += assigned.length * (eH - sH);
+                    let sM = parseInt(shift.startTime.split(':')[1]), eM = parseInt(shift.endTime.split(':')[1]);
+                    let startTotal = sH * 60 + sM, endTotal = eH * 60 + eM;
+                    if (endTotal < startTotal) endTotal += 24 * 60;
+                    dailyHours += assigned.length * ((endTotal - startTotal) / 60);
                 });
                 html += `<div class="stat-card ${isPeakDay(d) ? 'peak' : ''} ${holidays[dateStr] ? 'holiday' : ''}"><div class="stat-label">${days[i]} (${(d.getMonth()+1)}/${d.getDate()})</div><div class="stat-value">${dailyHours.toFixed(1)}h</div><div class="stat-label">當日總工時</div></div>`;
             }
@@ -457,7 +460,7 @@
             const list = document.getElementById('shift-list'); list.innerHTML = '';
             shifts.forEach((shift, index) => {
                 const item = document.createElement('div'); item.className = 'shift-item'; item.draggable = true;
-                item.innerHTML = `<div class="drag-handle">☰</div><input type="text" value="${shift.name}" onchange="updateShift(${index}, 'name', this.value)" style="padding:6px; border:1px solid #ddd; border-radius:4px; width:100px;"><input type="time" value="${shift.startTime}" onchange="updateShift(${index}, 'startTime', this.value)" style="padding:6px; border:1px solid #ddd; border-radius:4px;"><input type="time" value="${shift.endTime}" onchange="updateShift(${index}, 'endTime', this.value)" style="padding:6px; border:1px solid #ddd; border-radius:4px;"><div>平日: <input type="number" style="width:45px; padding:6px; border:1px solid #ddd; border-radius:4px;" value="${shift.normalNeed}" onchange="updateShift(${index}, 'normalNeed', this.value)"></div><div>旺日: <input type="number" style="width:45px; padding:6px; border:1px solid #ddd; border-radius:4px;" value="${shift.peakNeed}" onchange="updateShift(${index}, 'peakNeed', this.value)"></div><button class="btn" style="background:#fff5f5; color:#e53e3e; border:1px solid #feb2b2;" onclick="deleteShift(${index})">刪除</button>`;
+                item.innerHTML = `<div class="drag-handle">☰</div><input type="text" value="${shift.name}" onchange="updateShift(${index}, 'name', this.value)" style="padding:6px; border:1px solid #ddd; border-radius:4px; width:100px;"><input type="time" value="${shift.startTime}" onchange="updateShift(${index}, 'startTime', this.value)"><input type="time" value="${shift.endTime}" onchange="updateShift(${index}, 'endTime', this.value)"><div>平日: <input type="number" style="width:45px; padding:6px; border:1px solid #ddd; border-radius:4px;" value="${shift.normalNeed}" onchange="updateShift(${index}, 'normalNeed', this.value)"></div><div>旺日: <input type="number" style="width:45px; padding:6px; border:1px solid #ddd; border-radius:4px;" value="${shift.peakNeed}" onchange="updateShift(${index}, 'peakNeed', this.value)"></div><button class="btn" style="background:#fff5f5; color:#e53e3e; border:1px solid #feb2b2;" onclick="deleteShift(${index})">刪除</button>`;
                 item.addEventListener('dragstart', () => item.classList.add('dragging'));
                 item.addEventListener('dragend', () => { item.classList.remove('dragging'); saveShifts(); });
                 list.appendChild(item);
