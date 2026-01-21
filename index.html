@@ -48,6 +48,12 @@
         .schedule-table th, .schedule-table td { border: 1px solid var(--border); padding: 12px; text-align: center; vertical-align: top; }
         .schedule-table th { background: #f8fafc; font-weight: 700; color: #4a5568; }
         
+        /* 人員導向視圖縮小 30% */
+        .person-view-table th, .person-view-table td { padding: 8px 6px; font-size: 0.85rem; }
+        .person-view-table .employee-tag { padding: 3px 6px; font-size: 0.75rem; margin: 2px; }
+        .person-view-table .quick-add-btn { width: 24px; height: 24px; font-size: 1rem; margin: 4px auto 0; }
+        .person-view-table .cell-content { min-height: 60px; }
+
         .schedule-weather { margin-top: 6px; padding: 6px; background: rgba(255,255,255,0.8); border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
         .weather-main { font-size: 1.1rem; font-weight: 700; display: flex; justify-content: center; align-items: center; gap: 4px; }
         .weather-detail { font-size: 0.75rem; color: #718096; display: flex; justify-content: center; gap: 8px; margin-top: 2px; }
@@ -326,7 +332,9 @@
             const end = new Date(start); end.setDate(end.getDate() + 6);
             weekLabel.innerText = `${start.toLocaleDateString()} - ${end.toLocaleDateString()}`;
             const monthName = (start.getMonth() + 1) + "月";
-            let html = `<div class="month-label">${monthName}</div><table class="schedule-table"><thead><tr><th>${currentView === 'shift' ? '班次' : '員工'}</th>`;
+            
+            let tableClass = currentView === 'person' ? 'schedule-table person-view-table' : 'schedule-table';
+            let html = `<div class="month-label">${monthName}</div><table class="${tableClass}"><thead><tr><th>${currentView === 'shift' ? '班次' : '員工'}</th>`;
             
             const days = ['週一', '週二', '週三', '週四', '週五', '週六', '週日'];
             for (let i = 0; i < 7; i++) {
@@ -367,12 +375,12 @@
                         shifts.forEach(shift => {
                             const key = `${dateStr}_${shift.id}`;
                             if ((schedules[key] || []).includes(emp.id)) {
-                                html += `<span class="employee-tag" style="background:#ebf4ff; border-left:4px solid #3182ce; flex-direction:column; align-items:flex-start; padding:6px 10px;">
+                                html += `<span class="employee-tag" style="background:#ebf4ff; border-left:4px solid #3182ce; flex-direction:column; align-items:flex-start; padding:4px 8px;">
                                     <div style="display:flex; justify-content:space-between; width:100%; align-items:center;">
                                         <span style="color:#2b6cb0">${shift.name}</span>
                                         <span class="remove-btn" onclick="removeFromShift('${key}', ${emp.id})">×</span>
                                     </div>
-                                    <div style="font-size:10px; color:#718096; margin-top:2px;">${shift.startTime} - ${shift.endTime}</div>
+                                    <div style="font-size:9px; color:#718096; margin-top:1px;">${shift.startTime}-${shift.endTime}</div>
                                 </span>`;
                             }
                         });
