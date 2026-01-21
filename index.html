@@ -21,7 +21,7 @@
         .navbar {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 15px 30px;
+            padding: 12px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -29,14 +29,14 @@
         }
 
         .navbar h1 {
-            font-size: 22px;
+            font-size: 20px;
         }
 
         .navbar .store-name {
             background: rgba(255,255,255,0.2);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 14px;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 13px;
         }
 
         /* Tab 導航 */
@@ -44,16 +44,17 @@
             background: white;
             display: flex;
             border-bottom: 2px solid #e8ebf2;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
         .tab {
-            padding: 15px 25px;
+            padding: 12px 20px;
             cursor: pointer;
             border-bottom: 3px solid transparent;
             font-weight: 500;
             color: #666;
             transition: all 0.2s;
+            font-size: 14px;
         }
 
         .tab:hover {
@@ -67,8 +68,8 @@
 
         /* 主內容區 */
         .main-content {
-            padding: 25px;
-            max-width: 1800px; /* 加大最大寬度 */
+            padding: 20px;
+            max-width: 1500px;
             margin: 0 auto;
         }
 
@@ -83,28 +84,28 @@
         /* 卡片樣式 */
         .card {
             background: white;
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
 
         .card h2 {
-            font-size: 20px; /* 加大標題 */
+            font-size: 18px;
             color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
-        /* 排班表樣式優化 - 加大版 */
+        /* 排班表樣式優化 - 縮小 25% 版 */
         .month-label {
-            font-size: 2rem; /* 加大月份字體 */
+            font-size: 1.5rem;
             font-weight: 800;
             color: #2b6cb0;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
         }
 
         .schedule-table {
@@ -112,25 +113,25 @@
             border-collapse: separate;
             border-spacing: 0;
             background: white;
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             table-layout: fixed;
         }
 
         .schedule-table th, .schedule-table td {
             border: 1px solid #e2e8f0;
-            padding: 20px 12px; /* 增加內距 */
+            padding: 12px 8px;
             text-align: center;
             vertical-align: top;
-            min-height: 140px; /* 增加最小高度 */
+            min-height: 100px;
         }
 
         .schedule-table th {
             background: #f8f9fc;
             font-weight: 700;
             color: #4a5568;
-            font-size: 1.1rem; /* 加大表頭字體 */
+            font-size: 0.95rem;
         }
 
         .schedule-table td.peak-day {
@@ -144,39 +145,39 @@
         .shift-label {
             font-weight: 700;
             color: #2d3748;
-            font-size: 1.1rem;
-            margin-bottom: 4px;
+            font-size: 1rem;
+            margin-bottom: 2px;
         }
 
         .shift-time {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #718096;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .employee-tag {
             display: inline-flex;
             align-items: center;
             background: #edf2f7;
-            padding: 6px 12px; /* 加大標籤 */
-            border-radius: 6px;
-            margin: 4px;
-            font-size: 15px; /* 加大字體 */
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin: 3px;
+            font-size: 13px;
             font-weight: 600;
             box-shadow: 0 1px 2px rgba(0,0,0,0.05);
             position: relative;
         }
 
         .employee-tag.fulltime {
-            border-left: 4px solid #48bb78;
+            border-left: 3px solid #48bb78;
         }
 
         .employee-tag.parttime {
-            border-left: 4px solid #ecc94b;
+            border-left: 3px solid #ecc94b;
         }
 
         .remove-btn {
-            margin-left: 6px;
+            margin-left: 5px;
             cursor: pointer;
             color: #a0aec0;
             font-weight: bold;
@@ -190,14 +191,14 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 32px; /* 加大按鈕 */
-            height: 32px;
+            width: 24px;
+            height: 24px;
             background: #4299e1;
             color: white;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 20px;
-            margin: 12px auto;
+            font-size: 16px;
+            margin: 8px auto;
             display: block;
             transition: all 0.2s;
             box-shadow: 0 2px 4px rgba(66, 153, 225, 0.3);
@@ -210,37 +211,37 @@
 
         .need-more {
             color: #e53e3e;
-            font-size: 0.9rem;
-            margin-top: 8px;
+            font-size: 0.85rem;
+            margin-top: 6px;
             font-weight: 600;
         }
 
         /* 天氣樣式 */
         .schedule-weather {
-            font-size: 12px;
-            margin: 8px 0;
+            font-size: 11px;
+            margin: 6px 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
+            gap: 3px;
             background: rgba(255, 255, 255, 0.7);
-            padding: 8px;
-            border-radius: 8px;
+            padding: 6px;
+            border-radius: 6px;
             border: 1px solid rgba(0,0,0,0.05);
         }
 
         .weather-main {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 4px;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .weather-detail {
             display: flex;
-            gap: 8px;
-            font-size: 11px;
+            gap: 6px;
+            font-size: 10px;
             color: #4a5568;
         }
 
@@ -253,21 +254,22 @@
         .quick-add-menu {
             position: fixed;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
             z-index: 1000;
-            padding: 12px;
-            min-width: 180px;
+            padding: 10px;
+            min-width: 160px;
             display: none;
             border: 1px solid #e2e8f0;
         }
 
         .quick-add-item {
-            padding: 10px 15px;
+            padding: 8px 12px;
             cursor: pointer;
-            border-radius: 8px;
+            border-radius: 6px;
             transition: background 0.2s;
             font-weight: 500;
+            font-size: 13px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -281,14 +283,14 @@
         /* 每日總工時統計 */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 12px;
         }
 
         .stat-card {
             background: #f8f9fc;
-            padding: 15px;
-            border-radius: 10px;
+            padding: 12px;
+            border-radius: 8px;
             text-align: center;
             border: 1px solid #e2e8f0;
         }
@@ -297,26 +299,112 @@
         .stat-card.holiday { background-color: #fff5f5; border-color: #feb2b2; }
 
         .stat-value {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 800;
             color: #2d3748;
-            margin: 5px 0;
+            margin: 4px 0;
         }
 
         .stat-label {
-            font-size: 13px;
+            font-size: 12px;
             color: #718096;
             font-weight: 600;
         }
 
-        /* 其他原有樣式保持... (簡化以節省空間) */
-        .btn {
-            padding: 10px 20px;
+        /* 日曆視圖修復 */
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .calendar-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .calendar-nav button {
+            background: #f0f2f5;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: #e2e8f0;
             border-radius: 8px;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .calendar-grid .day-header {
+            background: #667eea;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .calendar-grid .day-cell {
+            background: white;
+            min-height: 100px;
+            padding: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .calendar-grid .day-cell:hover {
+            background: #f8f9fc;
+        }
+
+        .calendar-grid .day-cell.other-month {
+            background: #f5f5f5;
+            color: #aaa;
+        }
+
+        .calendar-grid .day-cell.today {
+            background: #e3f2fd;
+        }
+
+        .calendar-grid .day-cell.peak {
+            background: #fff3e0;
+        }
+
+        .calendar-grid .day-cell.holiday {
+            background: #fce4ec;
+        }
+
+        .calendar-grid .day-cell .date {
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .calendar-grid .day-cell .date .holiday-name {
+            font-size: 10px;
+            color: #e91e63;
+            font-weight: normal;
+        }
+
+        /* 其他原有樣式保持... */
+        .btn {
+            padding: 8px 16px;
+            border-radius: 6px;
             border: none;
             cursor: pointer;
             font-weight: 600;
             transition: all 0.2s;
+            font-size: 13px;
         }
         .btn-primary { background: #667eea; color: white; }
         .btn-danger { background: #e53e3e; color: white; }
@@ -324,18 +412,20 @@
         
         .ai-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 12px;
-            padding: 30px;
+            border-radius: 10px;
+            padding: 20px;
             color: white;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
+        .ai-section h2 { color: white; font-size: 18px; margin-bottom: 10px; }
+        .ai-section p { font-size: 14px; margin-bottom: 15px; opacity: 0.9; }
         .btn-ai {
             background: white;
             color: #667eea;
             border: none;
-            padding: 15px 40px;
-            border-radius: 10px;
-            font-size: 18px;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 16px;
             font-weight: 700;
             cursor: pointer;
         }
@@ -343,28 +433,31 @@
         /* 班次設定列表 */
         .shift-item {
             display: grid;
-            grid-template-columns: 40px 2fr 1.5fr 1.5fr 1fr 1fr 100px;
-            gap: 15px;
+            grid-template-columns: 30px 2fr 1.5fr 1.5fr 1fr 1fr 80px;
+            gap: 10px;
             align-items: center;
-            padding: 15px;
+            padding: 12px;
             background: white;
             border-bottom: 1px solid #edf2f7;
         }
-        .drag-handle { cursor: grab; font-size: 20px; color: #cbd5e0; }
+        .drag-handle { cursor: grab; font-size: 18px; color: #cbd5e0; }
+        .shift-item input { padding: 6px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px; }
 
         /* 員工管理 */
         .employee-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 15px;
         }
         .employee-card {
             background: #f8f9fc;
             border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 20px;
+            border-radius: 10px;
+            padding: 15px;
             position: relative;
         }
+        .employee-card .name { font-size: 15px; font-weight: 600; }
+        .employee-card .info { font-size: 12px; color: #666; margin-top: 5px; }
     </style>
 </head>
 <body>
@@ -391,11 +484,11 @@
             </div>
 
             <div class="card">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                     <h2>本週排班表</h2>
-                    <div style="display: flex; gap: 10px; align-items: center;">
+                    <div style="display: flex; gap: 8px; align-items: center;">
                         <button class="btn" style="background:#edf2f7" onclick="changeWeek(-1)">&lt; 上週</button>
-                        <span id="current-week-label" style="font-weight: 700; font-size: 1.1rem;"></span>
+                        <span id="current-week-label" style="font-weight: 700; font-size: 1rem;"></span>
                         <button class="btn" style="background:#edf2f7" onclick="changeWeek(1)">下週 &gt;</button>
                     </div>
                 </div>
@@ -404,7 +497,7 @@
                     <!-- 表格將由 JS 動態生成 -->
                 </div>
 
-                <div style="margin-top: 25px; display: flex; gap: 15px;">
+                <div style="margin-top: 20px; display: flex; gap: 12px;">
                     <button class="btn btn-success" onclick="saveSchedule()">儲存排班</button>
                     <button class="btn" style="background:#edf2f7" onclick="exportCSV()">匯出 CSV</button>
                     <button class="btn btn-danger" onclick="clearWeekSchedule()">清空本週</button>
@@ -423,30 +516,30 @@
         <div id="employees" class="tab-content">
             <div class="card">
                 <h2>新增員工</h2>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>姓名</label>
-                        <input type="text" id="emp-name" placeholder="輸入姓名">
+                <div class="form-row" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 12px;">
+                    <div class="form-group" style="display: flex; flex-direction: column;">
+                        <label style="font-size: 12px; margin-bottom: 4px;">姓名</label>
+                        <input type="text" id="emp-name" placeholder="輸入姓名" style="padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
                     </div>
-                    <div class="form-group">
-                        <label>類型</label>
-                        <select id="emp-type">
+                    <div class="form-group" style="display: flex; flex-direction: column;">
+                        <label style="font-size: 12px; margin-bottom: 4px;">類型</label>
+                        <select id="emp-type" style="padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
                             <option value="fulltime">正職</option>
                             <option value="parttime">兼職</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label>每週最多工作天數</label>
-                        <input type="number" id="emp-max-days" value="5">
+                    <div class="form-group" style="display: flex; flex-direction: column;">
+                        <label style="font-size: 12px; margin-bottom: 4px;">每週最多工作天數</label>
+                        <input type="number" id="emp-max-days" value="5" style="padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
                     </div>
-                    <div class="form-group">
-                        <label>每週最多工作小時</label>
-                        <input type="number" id="emp-max-hours" value="40">
+                    <div class="form-group" style="display: flex; flex-direction: column;">
+                        <label style="font-size: 12px; margin-bottom: 4px;">每週最多工作小時</label>
+                        <input type="number" id="emp-max-hours" value="40" style="padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
                     </div>
                 </div>
-                <div style="margin-bottom: 15px;">
-                    <label style="font-size: 13px; font-weight: 500; color: #555;">可用時段 (勾選可上班的日子)</label>
-                    <div style="display: flex; gap: 10px; margin-top: 5px;">
+                <div style="margin-bottom: 12px;">
+                    <label style="font-size: 12px; font-weight: 500; color: #555;">可用時段</label>
+                    <div style="display: flex; gap: 8px; margin-top: 4px; font-size: 13px;">
                         <label><input type="checkbox" class="emp-avail" value="1" checked> 週一</label>
                         <label><input type="checkbox" class="emp-avail" value="2" checked> 週二</label>
                         <label><input type="checkbox" class="emp-avail" value="3" checked> 週三</label>
@@ -460,7 +553,7 @@
             </div>
 
             <div class="card">
-                <h2>員工列表 <span id="emp-count" class="badge">0</span></h2>
+                <h2>員工列表 <span id="emp-count" style="background:#667eea; color:white; font-size:11px; padding:2px 8px; border-radius:10px; margin-left:8px;">0</span></h2>
                 <div id="employee-list" class="employee-grid"></div>
             </div>
         </div>
@@ -472,7 +565,7 @@
                 <div id="shift-list" class="shift-list">
                     <!-- 班次將由 JS 動態生成 -->
                 </div>
-                <button class="btn btn-primary" style="margin-top: 20px;" onclick="addShift()">新增班次</button>
+                <button class="btn btn-primary" style="margin-top: 15px;" onclick="addShift()">新增班次</button>
             </div>
         </div>
 
@@ -483,7 +576,7 @@
                     <h2>假日日曆</h2>
                     <div class="calendar-nav">
                         <button onclick="changeCalendarMonth(-1)">&lt;</button>
-                        <div id="calendar-month-label" class="month-label" style="margin-bottom:0; font-size:1.2rem">2025年 1月</div>
+                        <div id="calendar-month-label" style="font-weight: 600; font-size: 1.1rem; min-width: 120px; text-align: center;">2025年 1月</div>
                         <button onclick="changeCalendarMonth(1)">&gt;</button>
                     </div>
                 </div>
@@ -504,7 +597,7 @@
         <div id="peak-settings" class="tab-content">
             <div class="card">
                 <h2>旺日判定設定</h2>
-                <div style="display: flex; flex-direction: column; gap: 15px;">
+                <div style="display: flex; flex-direction: column; gap: 12px; font-size: 14px;">
                     <label><input type="checkbox" id="peak-weekend" checked> 週六、週日視為旺日</label>
                     <label><input type="checkbox" id="peak-holiday" checked> 國定假日視為旺日</label>
                     <label><input type="checkbox" id="peak-vacation" checked> 大學寒暑假期間視為旺日</label>
@@ -536,34 +629,20 @@
         let schedules = JSON.parse(localStorage.getItem('schedules')) || {};
         let weatherData = {};
 
-        // 台灣 2025 國定假日 (範例)
         const holidays2025 = {
-            '2025-01-01': '元旦',
-            '2025-01-27': '除夕前一日',
-            '2025-01-28': '除夕',
-            '2025-01-29': '春節',
-            '2025-01-30': '春節',
-            '2025-01-31': '春節',
-            '2025-02-28': '和平紀念日',
-            '2025-04-03': '兒童節',
-            '2025-04-04': '清明節',
-            '2025-05-31': '端午節',
-            '2025-10-06': '中秋節',
-            '2025-10-10': '國慶日'
+            '2025-01-01': '元旦', '2025-01-27': '除夕前一日', '2025-01-28': '除夕', '2025-01-29': '春節',
+            '2025-01-30': '春節', '2025-01-31': '春節', '2025-02-28': '和平紀念日', '2025-04-03': '兒童節',
+            '2025-04-04': '清明節', '2025-05-31': '端午節', '2025-10-06': '中秋節', '2025-10-10': '國慶日'
         };
 
         let currentWeekStart = getMonday(new Date());
         let calendarDate = new Date();
-
-        // --- 核心功能 ---
 
         function init() {
             renderEmployeeList();
             renderShiftList();
             renderScheduleTable();
             fetchWeather();
-            
-            // 點擊外部關閉快速新增選單
             document.addEventListener('click', (e) => {
                 if (!e.target.closest('.quick-add-btn') && !e.target.closest('.quick-add-menu')) {
                     document.getElementById('quick-add-menu').style.display = 'none';
@@ -573,17 +652,14 @@
 
         function getMonday(d) {
             d = new Date(d);
-            let day = d.getDay(),
-                diff = d.getDate() - day + (day == 0 ? -6 : 1);
+            let day = d.getDay(), diff = d.getDate() - day + (day == 0 ? -6 : 1);
             return new Date(d.setDate(diff));
         }
 
         async function fetchWeather() {
             try {
-                // 宜蘭羅東座標: 24.67, 121.76
                 const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=24.67&longitude=121.76&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FTaipei&past_days=7');
                 const data = await response.json();
-                
                 data.daily.time.forEach((dateStr, index) => {
                     weatherData[dateStr] = {
                         code: data.daily.weathercode[index],
@@ -597,24 +673,16 @@
         }
 
         function getWeatherEmoji(code) {
-            if (code <= 1) return '☀️';
-            if (code <= 3) return '⛅';
-            if (code <= 48) return '🌫️';
-            if (code <= 67) return '🌧️';
-            if (code <= 77) return '❄️';
-            if (code <= 82) return '🌦️';
-            if (code <= 99) return '⛈️';
-            return '❓';
+            if (code <= 1) return '☀️'; if (code <= 3) return '⛅'; if (code <= 48) return '🌫️';
+            if (code <= 67) return '🌧️'; if (code <= 77) return '❄️'; if (code <= 82) return '🌦️';
+            if (code <= 99) return '⛈️'; return '❓';
         }
 
         function isPeakDay(date) {
             const dateStr = date.toISOString().split('T')[0];
             const day = date.getDay();
-            
             if (document.getElementById('peak-weekend').checked && (day === 0 || day === 6)) return true;
             if (document.getElementById('peak-holiday').checked && holidays2025[dateStr]) return true;
-            
-            // 寒暑假判定 (範例)
             if (document.getElementById('peak-vacation').checked) {
                 const month = date.getMonth() + 1;
                 if (month === 1 || month === 2 || month === 7 || month === 8) return true;
@@ -625,15 +693,12 @@
         function renderScheduleTable() {
             const container = document.getElementById('schedule-container');
             const weekLabel = document.getElementById('current-week-label');
-            
             const start = new Date(currentWeekStart);
             const end = new Date(start);
             end.setDate(end.getDate() + 6);
             weekLabel.innerText = `${start.toLocaleDateString()} - ${end.toLocaleDateString()}`;
 
-            // 月份標籤
             const monthName = (start.getMonth() + 1) + "月";
-            
             let html = `<div class="month-label">${monthName}</div>`;
             html += `<table class="schedule-table"><thead><tr><th>班次</th>`;
             
@@ -648,65 +713,39 @@
 
                 html += `<th class="${isPeak ? 'peak-day' : ''} ${holiday ? 'holiday-day' : ''}">
                     <div>${days[i]}</div>
-                    <div style="font-size:0.8rem; color:#718096">${(d.getMonth()+1)}/${d.getDate()}</div>`;
-                
+                    <div style="font-size:0.75rem; color:#718096">${(d.getMonth()+1)}/${d.getDate()}</div>`;
                 if (weather) {
                     html += `<div class="schedule-weather">
                         <div class="weather-main">${getWeatherEmoji(weather.code)} ${Math.round(weather.maxTemp)}°</div>
-                        <div class="weather-detail">
-                            <span>${Math.round(weather.minTemp)}°</span>
-                            <span class="${weather.pop > 40 ? 'high-pop' : ''}">☔${weather.pop}%</span>
-                        </div>
+                        <div class="weather-detail"><span>${Math.round(weather.minTemp)}°</span><span class="${weather.pop > 40 ? 'high-pop' : ''}">☔${weather.pop}%</span></div>
                     </div>`;
                 }
-                
-                if (holiday) html += `<div style="color:#e53e3e; font-size:10px">${holiday}</div>`;
-                if (isPeak) html += `<div style="color:#ed8936; font-size:10px">旺日</div>`;
-                
+                if (holiday) html += `<div style="color:#e53e3e; font-size:9px">${holiday}</div>`;
+                if (isPeak) html += `<div style="color:#ed8936; font-size:9px">旺日</div>`;
                 html += `</th>`;
             }
             html += `</tr></thead><tbody>`;
 
             shifts.forEach(shift => {
-                html += `<tr>
-                    <td>
-                        <div class="shift-label">${shift.name}</div>
-                        <div class="shift-time">${shift.startTime} - ${shift.endTime}</div>
-                    </td>`;
-                
+                html += `<tr><td><div class="shift-label">${shift.name}</div><div class="shift-time">${shift.startTime} - ${shift.endTime}</div></td>`;
                 for (let i = 0; i < 7; i++) {
-                    const d = new Date(start);
-                    d.setDate(d.getDate() + i);
+                    const d = new Date(start); d.setDate(d.getDate() + i);
                     const dateStr = d.toISOString().split('T')[0];
                     const isPeak = isPeakDay(d);
                     const need = isPeak ? shift.peakNeed : shift.normalNeed;
-                    
                     const key = `${dateStr}_${shift.id}`;
                     const assigned = schedules[key] || [];
-                    
-                    html += `<td class="${isPeak ? 'peak-day' : ''}">
-                        <div id="cell-${key}" class="cell-content">`;
-                    
+                    html += `<td class="${isPeak ? 'peak-day' : ''}"><div id="cell-${key}" class="cell-content">`;
                     assigned.forEach(empId => {
                         const emp = employees.find(e => e.id == empId);
-                        if (emp) {
-                            html += `<span class="employee-tag ${emp.type}">
-                                ${emp.name}
-                                <span class="remove-btn" onclick="removeFromShift('${key}', ${emp.id})">×</span>
-                            </span>`;
-                        }
+                        if (emp) html += `<span class="employee-tag ${emp.type}">${emp.name}<span class="remove-btn" onclick="removeFromShift('${key}', ${emp.id})">×</span></span>`;
                     });
-
                     html += `</div>`;
-                    if (assigned.length < need) {
-                        html += `<div class="need-more">還需 ${need - assigned.length} 人</div>`;
-                    }
-                    html += `<div class="quick-add-btn" onclick="showQuickAdd(event, '${key}')">+</div>`;
-                    html += `</td>`;
+                    if (assigned.length < need) html += `<div class="need-more">還需 ${need - assigned.length} 人</div>`;
+                    html += `<div class="quick-add-btn" onclick="showQuickAdd(event, '${key}')">+</div></td>`;
                 }
                 html += `</tr>`;
             });
-
             html += `</tbody></table>`;
             container.innerHTML = html;
             updateStats();
@@ -716,71 +755,45 @@
             event.stopPropagation();
             const menu = document.getElementById('quick-add-menu');
             const assigned = schedules[key] || [];
-            
-            let html = `<div style="font-weight:bold; margin-bottom:8px; padding:0 5px; color:#4a5568; font-size:13px">快速新增人員</div>`;
-            
+            let html = `<div style="font-weight:bold; margin-bottom:6px; padding:0 5px; color:#4a5568; font-size:12px">快速新增人員</div>`;
             employees.forEach(emp => {
                 if (!assigned.includes(emp.id)) {
-                    html += `<div class="quick-add-item" onclick="addToShift('${key}', ${emp.id})">
-                        <span>${emp.name}</span>
-                        <span style="font-size:10px; color:#aaa">${emp.type === 'fulltime' ? '正職' : '兼職'}</span>
-                    </div>`;
+                    html += `<div class="quick-add-item" onclick="addToShift('${key}', ${emp.id})"><span>${emp.name}</span><span style="font-size:9px; color:#aaa">${emp.type === 'fulltime' ? '正職' : '兼職'}</span></div>`;
                 }
             });
-
-            if (employees.length === assigned.length) {
-                html += `<div style="padding:10px; color:#999; font-size:12px">無可用人員</div>`;
-            }
-
-            menu.innerHTML = html;
-            menu.style.display = 'block';
-            menu.style.left = event.pageX + 'px';
-            menu.style.top = event.pageY + 'px';
+            menu.innerHTML = html; menu.style.display = 'block';
+            menu.style.left = event.pageX + 'px'; menu.style.top = event.pageY + 'px';
         }
 
         function addToShift(key, empId) {
             if (!schedules[key]) schedules[key] = [];
-            if (!schedules[key].includes(empId)) {
-                schedules[key].push(empId);
-                renderScheduleTable();
-            }
+            if (!schedules[key].includes(empId)) { schedules[key].push(empId); renderScheduleTable(); }
             document.getElementById('quick-add-menu').style.display = 'none';
         }
 
         function removeFromShift(key, empId) {
-            if (schedules[key]) {
-                schedules[key] = schedules[key].filter(id => id != empId);
-                renderScheduleTable();
-            }
+            if (schedules[key]) { schedules[key] = schedules[key].filter(id => id != empId); renderScheduleTable(); }
         }
 
         function updateStats() {
             const statsContainer = document.getElementById('daily-stats');
             const start = new Date(currentWeekStart);
             const days = ['週一', '週二', '週三', '週四', '週五', '週六', '週日'];
-            
             let html = '';
             for (let i = 0; i < 7; i++) {
-                const d = new Date(start);
-                d.setDate(d.getDate() + i);
+                const d = new Date(start); d.setDate(d.getDate() + i);
                 const dateStr = d.toISOString().split('T')[0];
                 const isPeak = isPeakDay(d);
                 const holiday = holidays2025[dateStr];
-                
                 let dailyHours = 0;
                 shifts.forEach(shift => {
                     const key = `${dateStr}_${shift.id}`;
                     const assigned = schedules[key] || [];
-                    
-                    // 計算班次時數
                     let startH = parseInt(shift.startTime.split(':')[0]);
                     let endH = parseInt(shift.endTime.split(':')[0]);
-                    if (endH < startH) endH += 24; // 跨夜
-                    const duration = endH - startH;
-                    
-                    dailyHours += assigned.length * duration;
+                    if (endH < startH) endH += 24;
+                    dailyHours += assigned.length * (endH - startH);
                 });
-
                 html += `<div class="stat-card ${isPeak ? 'peak' : ''} ${holiday ? 'holiday' : ''}">
                     <div class="stat-label">${days[i]} (${(d.getMonth()+1)}/${d.getDate()})</div>
                     <div class="stat-value">${dailyHours.toFixed(1)}h</div>
@@ -788,12 +801,6 @@
                 </div>`;
             }
             statsContainer.innerHTML = html;
-        }
-
-        // --- 其他輔助功能 (切換週、儲存、員工管理等) ---
-        function changeWeek(offset) {
-            currentWeekStart.setDate(currentWeekStart.getDate() + (offset * 7));
-            renderScheduleTable();
         }
 
         function switchTab(tabId) {
@@ -804,181 +811,112 @@
             if (tabId === 'holidays') renderCalendar();
         }
 
-        function saveSchedule() {
-            localStorage.setItem('schedules', JSON.stringify(schedules));
-            alert('排班已儲存！');
-        }
+        function renderCalendar() {
+            const grid = document.getElementById('calendar-grid');
+            const monthLabel = document.getElementById('calendar-month-label');
+            const year = calendarDate.getFullYear();
+            const month = calendarDate.getMonth();
+            monthLabel.innerText = `${year}年 ${month + 1}月`;
 
-        function clearWeekSchedule() {
-            if (confirm('確定要清空本週所有排班嗎？')) {
-                const start = new Date(currentWeekStart);
-                for (let i = 0; i < 7; i++) {
-                    const d = new Date(start);
-                    d.setDate(d.getDate() + i);
-                    const dateStr = d.toISOString().split('T')[0];
-                    shifts.forEach(s => delete schedules[`${dateStr}_${s.id}`]);
-                }
-                renderScheduleTable();
+            // 清除舊日期 (保留 header)
+            const headers = Array.from(grid.querySelectorAll('.day-header'));
+            grid.innerHTML = '';
+            headers.forEach(h => grid.appendChild(h));
+
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const prevMonthDays = new Date(year, month, 0).getDate();
+
+            for (let i = firstDay - 1; i >= 0; i--) {
+                const cell = document.createElement('div');
+                cell.className = 'day-cell other-month';
+                cell.innerText = prevMonthDays - i;
+                grid.appendChild(cell);
+            }
+
+            for (let i = 1; i <= daysInMonth; i++) {
+                const d = new Date(year, month, i);
+                const dateStr = d.toISOString().split('T')[0];
+                const cell = document.createElement('div');
+                cell.className = 'day-cell';
+                if (isPeakDay(d)) cell.classList.add('peak');
+                if (holidays2025[dateStr]) cell.classList.add('holiday');
+                
+                const holidayName = holidays2025[dateStr] || '';
+                cell.innerHTML = `<div class="date"><span>${i}</span><span class="holiday-name">${holidayName}</span></div>`;
+                grid.appendChild(cell);
             }
         }
 
-        // --- 班次管理與拖曳 ---
+        function changeCalendarMonth(offset) {
+            calendarDate.setMonth(calendarDate.getMonth() + offset);
+            renderCalendar();
+        }
+
+        function changeWeek(offset) { currentWeekStart.setDate(currentWeekStart.getDate() + (offset * 7)); renderScheduleTable(); }
+        function saveSchedule() { localStorage.setItem('schedules', JSON.stringify(schedules)); alert('排班已儲存！'); }
+        function clearWeekSchedule() { if (confirm('確定要清空本週所有排班嗎？')) { const start = new Date(currentWeekStart); for (let i = 0; i < 7; i++) { const d = new Date(start); d.setDate(d.getDate() + i); const dateStr = d.toISOString().split('T')[0]; shifts.forEach(s => delete schedules[`${dateStr}_${s.id}`]); } renderScheduleTable(); } }
+
         function renderShiftList() {
-            const list = document.getElementById('shift-list');
-            list.innerHTML = '';
+            const list = document.getElementById('shift-list'); list.innerHTML = '';
             shifts.forEach((shift, index) => {
-                const item = document.createElement('div');
-                item.className = 'shift-item';
-                item.draggable = true;
-                item.innerHTML = `
-                    <div class="drag-handle">☰</div>
-                    <input type="text" value="${shift.name}" onchange="updateShift(${index}, 'name', this.value)">
-                    <input type="time" value="${shift.startTime}" onchange="updateShift(${index}, 'startTime', this.value)">
-                    <input type="time" value="${shift.endTime}" onchange="updateShift(${index}, 'endTime', this.value)">
-                    <div>平日需: <input type="number" style="width:50px" value="${shift.normalNeed}" onchange="updateShift(${index}, 'normalNeed', this.value)"></div>
-                    <div>旺日需: <input type="number" style="width:50px" value="${shift.peakNeed}" onchange="updateShift(${index}, 'peakNeed', this.value)"></div>
-                    <button class="delete-btn" onclick="deleteShift(${index})">刪除</button>
-                `;
-                
+                const item = document.createElement('div'); item.className = 'shift-item'; item.draggable = true;
+                item.innerHTML = `<div class="drag-handle">☰</div><input type="text" value="${shift.name}" onchange="updateShift(${index}, 'name', this.value)"><input type="time" value="${shift.startTime}" onchange="updateShift(${index}, 'startTime', this.value)"><input type="time" value="${shift.endTime}" onchange="updateShift(${index}, 'endTime', this.value)"><div>平日: <input type="number" style="width:40px" value="${shift.normalNeed}" onchange="updateShift(${index}, 'normalNeed', this.value)"></div><div>旺日: <input type="number" style="width:40px" value="${shift.peakNeed}" onchange="updateShift(${index}, 'peakNeed', this.value)"></div><button class="delete-btn" style="background:#ffebee; color:#c62828; border:none; padding:5px 10px; border-radius:4px; cursor:pointer" onclick="deleteShift(${index})">刪除</button>`;
                 item.addEventListener('dragstart', () => item.classList.add('dragging'));
-                item.addEventListener('dragend', () => {
-                    item.classList.remove('dragging');
-                    saveShifts();
-                });
+                item.addEventListener('dragend', () => { item.classList.remove('dragging'); saveShifts(); });
                 list.appendChild(item);
             });
-
             list.addEventListener('dragover', e => {
-                e.preventDefault();
-                const draggingItem = document.querySelector('.dragging');
-                const siblings = [...list.querySelectorAll('.shift-item:not(.dragging)')];
+                e.preventDefault(); const draggingItem = document.querySelector('.dragging'); const siblings = [...list.querySelectorAll('.shift-item:not(.dragging)')];
                 const nextSibling = siblings.find(sibling => e.clientY <= sibling.offsetTop + sibling.offsetHeight / 2);
                 list.insertBefore(draggingItem, nextSibling);
-                
-                // 更新陣列順序
-                const newShifts = [];
-                list.querySelectorAll('.shift-item').forEach(el => {
-                    const name = el.querySelector('input[type="text"]').value;
-                    newShifts.push(shifts.find(s => s.name === name));
-                });
+                const newShifts = []; list.querySelectorAll('.shift-item').forEach(el => { const name = el.querySelector('input[type="text"]').value; newShifts.push(shifts.find(s => s.name === name)); });
                 shifts = newShifts;
             });
         }
 
-        function addShift() {
-            shifts.push({ id: Date.now(), name: '新班次', startTime: '09:00', endTime: '17:00', normalNeed: 1, peakNeed: 2 });
-            renderShiftList();
-            renderScheduleTable();
-        }
+        function addShift() { shifts.push({ id: Date.now(), name: '新班次', startTime: '09:00', endTime: '17:00', normalNeed: 1, peakNeed: 2 }); renderShiftList(); renderScheduleTable(); }
+        function updateShift(index, field, value) { shifts[index][field] = value; saveShifts(); renderScheduleTable(); }
+        function deleteShift(index) { shifts.splice(index, 1); renderShiftList(); renderScheduleTable(); }
+        function saveShifts() { localStorage.setItem('shifts', JSON.stringify(shifts)); }
 
-        function updateShift(index, field, value) {
-            shifts[index][field] = value;
-            saveShifts();
-            renderScheduleTable();
-        }
-
-        function deleteShift(index) {
-            shifts.splice(index, 1);
-            renderShiftList();
-            renderScheduleTable();
-        }
-
-        function saveShifts() {
-            localStorage.setItem('shifts', JSON.stringify(shifts));
-        }
-
-        // --- 員工管理 ---
         function renderEmployeeList() {
-            const list = document.getElementById('employee-list');
-            document.getElementById('emp-count').innerText = employees.length;
-            list.innerHTML = '';
+            const list = document.getElementById('employee-list'); document.getElementById('emp-count').innerText = employees.length; list.innerHTML = '';
             employees.forEach((emp, index) => {
-                const card = document.createElement('div');
-                card.className = `employee-card ${emp.type}`;
-                card.innerHTML = `
-                    <div class="header">
-                        <div class="name">${emp.name}</div>
-                        <div class="type-badge ${emp.type}">${emp.type === 'fulltime' ? '正職' : '兼職'}</div>
-                    </div>
-                    <div class="info">每週最多 ${emp.maxDays} 天 / ${emp.maxHours} 小時</div>
-                    <div class="actions">
-                        <button onclick="deleteEmployee(${index})">🗑️</button>
-                    </div>
-                `;
+                const card = document.createElement('div'); card.className = `employee-card ${emp.type}`;
+                card.innerHTML = `<div class="header" style="display:flex; justify-content:space-between"><div class="name">${emp.name}</div><div class="type-badge" style="font-size:10px; padding:2px 6px; border-radius:4px; background:${emp.type==='fulltime'?'#d4edda':'#fff3cd'}">${emp.type==='fulltime'?'正職':'兼職'}</div></div><div class="info">每週最多 ${emp.maxDays} 天 / ${emp.maxHours} 小時</div><div class="actions" style="position:absolute; top:10px; right:10px"><button style="background:none; border:none; cursor:pointer" onclick="deleteEmployee(${index})">🗑️</button></div>`;
                 list.appendChild(card);
             });
         }
 
         function addEmployee() {
-            const name = document.getElementById('emp-name').value;
-            if (!name) return alert('請輸入姓名');
-            const type = document.getElementById('emp-type').value;
-            const maxDays = parseInt(document.getElementById('emp-max-days').value);
-            const maxHours = parseInt(document.getElementById('emp-max-hours').value);
-            const availability = Array.from(document.querySelectorAll('.emp-avail:checked')).map(cb => parseInt(cb.value));
-
+            const name = document.getElementById('emp-name').value; if (!name) return alert('請輸入姓名');
+            const type = document.getElementById('emp-type').value; const maxDays = parseInt(document.getElementById('emp-max-days').value);
+            const maxHours = parseInt(document.getElementById('emp-max-hours').value); const availability = Array.from(document.querySelectorAll('.emp-avail:checked')).map(cb => parseInt(cb.value));
             employees.push({ id: Date.now(), name, type, maxDays, maxHours, availability, preferences: [] });
-            localStorage.setItem('employees', JSON.stringify(employees));
-            renderEmployeeList();
-            document.getElementById('emp-name').value = '';
+            localStorage.setItem('employees', JSON.stringify(employees)); renderEmployeeList(); document.getElementById('emp-name').value = '';
         }
 
-        function deleteEmployee(index) {
-            if (confirm('確定刪除？')) {
-                employees.splice(index, 1);
-                localStorage.setItem('employees', JSON.stringify(employees));
-                renderEmployeeList();
-            }
-        }
+        function deleteEmployee(index) { if (confirm('確定刪除？')) { employees.splice(index, 1); localStorage.setItem('employees', JSON.stringify(employees)); renderEmployeeList(); } }
 
-        // --- AI 排班演算法 ---
         function runAIScheduling() {
-            const start = new Date(currentWeekStart);
-            const newSchedules = { ...schedules };
-            
-            // 清空本週
+            const start = new Date(currentWeekStart); const newSchedules = { ...schedules };
             for (let i = 0; i < 7; i++) {
-                const d = new Date(start);
-                d.setDate(d.getDate() + i);
-                const dateStr = d.toISOString().split('T')[0];
+                const d = new Date(start); d.setDate(d.getDate() + i); const dateStr = d.toISOString().split('T')[0];
                 shifts.forEach(s => delete newSchedules[`${dateStr}_${s.id}`]);
             }
-
-            // 簡單的權重排班
             for (let i = 0; i < 7; i++) {
-                const d = new Date(start);
-                d.setDate(d.getDate() + i);
-                const dateStr = d.toISOString().split('T')[0];
-                const day = d.getDay();
-                const isPeak = isPeakDay(d);
-
+                const d = new Date(start); d.setDate(d.getDate() + i); const dateStr = d.toISOString().split('T')[0];
+                const day = d.getDay(); const isPeak = isPeakDay(d);
                 shifts.forEach(shift => {
-                    const need = isPeak ? shift.peakNeed : shift.normalNeed;
-                    const key = `${dateStr}_${shift.id}`;
-                    newSchedules[key] = [];
-
-                    // 篩選可用員工並評分
-                    let candidates = employees.filter(emp => emp.availability.includes(day))
-                        .map(emp => {
-                            let score = emp.type === 'fulltime' ? 100 : 50;
-                            // 隨機性
-                            score += Math.random() * 20;
-                            return { emp, score };
-                        })
-                        .sort((a, b) => b.score - a.score);
-
-                    for (let j = 0; j < Math.min(need, candidates.length); j++) {
-                        newSchedules[key].push(candidates[j].emp.id);
-                    }
+                    const need = isPeak ? shift.peakNeed : shift.normalNeed; const key = `${dateStr}_${shift.id}`; newSchedules[key] = [];
+                    let candidates = employees.filter(emp => emp.availability.includes(day)).map(emp => ({ emp, score: (emp.type === 'fulltime' ? 100 : 50) + Math.random() * 20 })).sort((a, b) => b.score - a.score);
+                    for (let j = 0; j < Math.min(need, candidates.length); j++) { newSchedules[key].push(candidates[j].emp.id); }
                 });
             }
-
-            schedules = newSchedules;
-            renderScheduleTable();
-            alert('AI 排班完成！');
+            schedules = newSchedules; renderScheduleTable(); alert('AI 排班完成！');
         }
 
-        // 初始化
         init();
     </script>
 </body>
