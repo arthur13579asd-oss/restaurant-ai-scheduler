@@ -383,17 +383,35 @@
         }
 
         .calendar-grid .day-cell .date {
-            font-weight: 600;
-            font-size: 13px;
-            margin-bottom: 5px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 8px;
             display: flex;
             justify-content: space-between;
+            align-items: flex-start;
         }
 
         .calendar-grid .day-cell .date .holiday-name {
+            font-size: 11px;
+            color: #e53e3e;
+            font-weight: 700;
+            background: #fff5f5;
+            padding: 2px 4px;
+            border-radius: 4px;
+            max-width: 70%;
+            text-align: right;
+            line-height: 1.2;
+        }
+
+        .calendar-grid .day-cell .peak-tag {
+            display: inline-block;
             font-size: 10px;
-            color: #e91e63;
-            font-weight: normal;
+            background: #f6ad55;
+            color: white;
+            padding: 1px 4px;
+            border-radius: 3px;
+            margin-top: 4px;
+            font-weight: 800;
         }
 
         /* 其他原有樣式保持... */
@@ -844,7 +862,12 @@
                 if (holidays2025[dateStr]) cell.classList.add('holiday');
                 
                 const holidayName = holidays2025[dateStr] || '';
-                cell.innerHTML = `<div class="date"><span>${i}</span><span class="holiday-name">${holidayName}</span></div>`;
+                const isPeak = isPeakDay(d);
+                let content = `<div class="date"><span>${i}</span>`;
+                if (holidayName) content += `<span class="holiday-name">${holidayName}</span>`;
+                content += `</div>`;
+                if (isPeak) content += `<div class="peak-tag">旺</div>`;
+                cell.innerHTML = content;
                 grid.appendChild(cell);
             }
         }
