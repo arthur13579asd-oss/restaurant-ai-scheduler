@@ -522,15 +522,15 @@
             let html = `<div style="display:flex; gap:2px; align-items:center;">`;
             
             // 小時選單
-            html += `<select onchange="const m='${m}'; ${onChange}(this.value + ':' + m)" style="padding:4px; border:1px solid #ddd; border-radius:4px; font-weight:600;">`;
+            html += `<select onchange="const m='${m}'; ${onChange}(this.value + ':' + m)" style="padding:2px 4px; border:none; background:transparent; font-weight:700; color:#2b6cb0; cursor:pointer; font-size:13px;">`;
             for(let i=0; i<24; i++) {
                 const val = i.toString().padStart(2, '0');
                 html += `<option value="${val}" ${val === h ? 'selected' : ''}>${val}</option>`;
             }
-            html += `</select> : `;
+            html += `</select><span style="color:#2b6cb0; font-weight:700;">:</span>`;
             
-            // 分鐘選單 (每 15 分鐘一格)
-            html += `<select onchange="const h='${h}'; ${onChange}(h + ':' + this.value)" style="padding:4px; border:1px solid #ddd; border-radius:4px; font-weight:600;">`;
+            // 分鐘選單
+            html += `<select onchange="const h='${h}'; ${onChange}(h + ':' + this.value)" style="padding:2px 4px; border:none; background:transparent; font-weight:700; color:#2b6cb0; cursor:pointer; font-size:13px;">`;
             ['00', '15', '30', '45'].forEach(val => {
                 html += `<option value="${val}" ${val === m ? 'selected' : ''}>${val}</option>`;
             });
@@ -548,14 +548,19 @@
 
                 item.innerHTML = `
                     <div class="drag-handle">☰</div>
-                    <input type="text" value="${shift.name}" onchange="updateShift(${index}, 'name', this.value)" style="padding:6px; border:1px solid #ddd; border-radius:4px; width:100px;">
-                    <div style="display:flex; align-items:center; gap:8px; background:#fff; padding:4px 8px; border-radius:6px; border:1px solid #e2e8f0;">
-                        <span style="font-size:11px; color:#718096; font-weight:700;">開始</span> ${startTimeSelect}
-                        <span style="font-size:11px; color:#718096; font-weight:700; margin-left:4px;">結束</span> ${endTimeSelect}
+                    <input type="text" value="${shift.name}" onchange="updateShift(${index}, 'name', this.value)" style="padding:6px; border:1px solid #ddd; border-radius:4px; width:100px; font-weight:700; color:#2d3748;">
+                    <div style="display:flex; align-items:center; gap:4px; background:#ebf4ff; padding:4px 10px; border-radius:6px; border-left:4px solid #3182ce;">
+                        <div style="display:flex; flex-direction:column;">
+                            <div style="display:flex; align-items:center; gap:4px;">
+                                <span style="font-size:13px; font-weight:700; color:#2b6cb0;">${startTimeSelect}</span>
+                                <span style="color:#2b6cb0; font-weight:700;">-</span>
+                                <span style="font-size:13px; font-weight:700; color:#2b6cb0;">${endTimeSelect}</span>
+                            </div>
+                        </div>
                     </div>
-                    <div>平日: <input type="number" style="width:45px; padding:6px; border:1px solid #ddd; border-radius:4px;" value="${shift.normalNeed}" onchange="updateShift(${index}, 'normalNeed', this.value)"></div>
-                    <div>旺日: <input type="number" style="width:45px; padding:6px; border:1px solid #ddd; border-radius:4px;" value="${shift.peakNeed}" onchange="updateShift(${index}, 'peakNeed', this.value)"></div>
-                    <button class="btn" style="background:#fff5f5; color:#e53e3e; border:1px solid #feb2b2;" onclick="deleteShift(${index})">刪除</button>
+                    <div style="font-size:13px; color:#4a5568;">平日: <input type="number" style="width:45px; padding:6px; border:1px solid #ddd; border-radius:4px;" value="${shift.normalNeed}" onchange="updateShift(${index}, 'normalNeed', this.value)"></div>
+                    <div style="font-size:13px; color:#4a5568;">旺日: <input type="number" style="width:45px; padding:6px; border:1px solid #ddd; border-radius:4px;" value="${shift.peakNeed}" onchange="updateShift(${index}, 'peakNeed', this.value)"></div>
+                    <button class="btn" style="padding:6px 12px; background:#fff5f5; color:#e53e3e; border:1px solid #feb2b2; font-size:13px;" onclick="deleteShift(${index})">刪除</button>
                 `;
                 item.addEventListener('dragstart', () => item.classList.add('dragging'));
                 item.addEventListener('dragend', () => { item.classList.remove('dragging'); saveShifts(); });
