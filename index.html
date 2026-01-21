@@ -430,7 +430,7 @@
                                         <span style="color:#2b6cb0">${shift.name}</span>
                                         <span class="remove-btn" onclick="removeFromShift('${key}', ${emp.id})">×</span>
                                     </div>
-                                    <div style="font-size:11px; font-weight:600; color:#4a5568; margin-top:1px;">${shift.startTime}-${shift.endTime}</div>
+                                    <div style="font-size:11px; font-weight:600; color:#4a5568; margin-top:1px;">${shifts.find(s => s.id === shift.id)?.startTime || shift.startTime}-${shifts.find(s => s.id === shift.id)?.endTime || shift.endTime}</div>
                                 </span>`;
                             }
                         });
@@ -455,7 +455,10 @@
             } else {
                 shifts.forEach(shift => {
                     const shiftKey = `${key}_${shift.id}`;
-                    if (!(schedules[shiftKey] || []).includes(empId)) html += `<div class="quick-add-item" onclick="addToShift('${shiftKey}', ${empId})"><span>${shift.name}</span><span style="font-size:11px; font-weight:600; color:#718096">${shift.startTime}-${shift.endTime}</span></div>`;
+                    if (!(schedules[shiftKey] || []).includes(empId)) {
+                        const currentShift = shifts.find(s => s.id === shift.id) || shift;
+                        html += `<div class="quick-add-item" onclick="addToShift('${shiftKey}', ${empId})"><span>${currentShift.name}</span><span style="font-size:11px; font-weight:600; color:#718096">${currentShift.startTime}-${currentShift.endTime}</span></div>`;
+                    }
                 });
             }
             menu.innerHTML = html; menu.style.display = 'block';
