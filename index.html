@@ -1219,7 +1219,8 @@
             }
 
             // 表頭
-            let html = '<thead><tr><th>班次</th>';
+            const monthLabel = (currentWeekStart.getMonth() + 1) + '月';
+            let html = `<thead><tr><th><div style="font-size:16px; color:#667eea; margin-bottom:4px;">${monthLabel}</div>班次</th>`;
             weekDates.forEach(dateStr => {
                 const isPeak = isPeakDay(dateStr);
                 const isHoliday = taiwanHolidays[dateStr];
