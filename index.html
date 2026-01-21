@@ -359,7 +359,6 @@
             padding: 8px;
             cursor: pointer;
             transition: all 0.2s;
-            position: relative;
         }
 
         .calendar-grid .day-cell:hover {
@@ -392,116 +391,141 @@
             align-items: flex-start;
         }
 
-        .calendar-grid .day-cell .holiday-name {
-            font-size: 10px;
+        .calendar-grid .day-cell .date .holiday-name {
+            font-size: 11px;
             color: #e53e3e;
+            font-weight: 700;
             background: #fff5f5;
             padding: 2px 4px;
-            border-radius: 3px;
-            white-space: nowrap;
+            border-radius: 4px;
+            max-width: 70%;
+            text-align: right;
+            line-height: 1.2;
         }
 
         .calendar-grid .day-cell .peak-tag {
-            position: absolute;
-            bottom: 5px;
-            right: 5px;
+            display: inline-block;
             font-size: 10px;
             background: #f6ad55;
             color: white;
             padding: 1px 4px;
             border-radius: 3px;
+            margin-top: 4px;
+            font-weight: 800;
         }
 
-        /* 視圖切換按鈕 */
-        .view-switcher {
-            display: flex;
-            gap: 10px;
+        /* 其他原有樣式保持... */
+        .btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+            font-size: 13px;
+        }
+        .btn-primary { background: #667eea; color: white; }
+        .btn-danger { background: #e53e3e; color: white; }
+        .btn-success { background: #48bb78; color: white; }
+        
+        .ai-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            padding: 20px;
+            color: white;
             margin-bottom: 15px;
         }
-
-        .view-btn {
-            padding: 8px 16px;
-            border: 1px solid #cbd5e0;
+        .ai-section h2 { color: white; font-size: 18px; margin-bottom: 10px; }
+        .ai-section p { font-size: 14px; margin-bottom: 15px; opacity: 0.9; }
+        .btn-ai {
             background: white;
-            border-radius: 6px;
+            color: #667eea;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
             cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            color: #4a5568;
-            transition: all 0.2s;
         }
 
-        .view-btn.active {
+        /* 班次設定列表 */
+        .shift-item {
+            display: grid;
+            grid-template-columns: 30px 2fr 1.5fr 1.5fr 1fr 1fr 80px;
+            gap: 10px;
+            align-items: center;
+            padding: 12px;
+            background: white;
+            border-bottom: 1px solid #edf2f7;
+        }
+        .drag-handle { cursor: grab; font-size: 18px; color: #cbd5e0; }
+        .shift-item input { padding: 6px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px; }
+
+        /* 員工管理優化 */
+        .employee-table-container {
+            width: 100%;
+            overflow-x: auto;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .employee-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .employee-table th, .employee-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 14px;
+        }
+
+        .employee-table th {
+            background: #f8f9fc;
+            font-weight: 700;
+            color: #4a5568;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .employee-table tr:hover {
+            background-color: #f7fafc;
+        }
+
+        .employee-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .type-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .type-fulltime { background: #d4edda; color: #155724; }
+        .type-parttime { background: #fff3cd; color: #856404; }
+
+        .avail-dot {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 2px;
+            font-size: 11px;
+            background: #edf2f7;
+            color: #a0aec0;
+        }
+
+        .avail-dot.active {
             background: #667eea;
             color: white;
-            border-color: #667eea;
-        }
-
-        /* 人員導向視圖樣式 */
-        .person-view-table th, .person-view-table td {
-            padding: 15px 10px;
-            min-height: 80px;
-        }
-
-        .person-name-col {
-            font-weight: 700;
-            color: #2d3748;
-            background: #f7fafc;
-            width: 120px;
-        }
-
-        .shift-bubble {
-            display: block;
-            background: #ebf8ff;
-            color: #2b6cb0;
-            padding: 4px 8px;
-            border-radius: 4px;
-            margin: 4px 0;
-            font-size: 12px;
-            font-weight: 600;
-            border-left: 3px solid #4299e1;
-        }
-
-        /* 通用按鈕 */
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.2s;
-        }
-
-        .btn-primary { background: #667eea; color: white; }
-        .btn-primary:hover { background: #5a67d8; }
-        .btn-success { background: #48bb78; color: white; }
-        .btn-success:hover { background: #38a169; }
-        .btn-danger { background: #f56565; color: white; }
-        .btn-danger:hover { background: #e53e3e; }
-
-        /* 拖曳手柄 */
-        .drag-handle {
-            cursor: grab;
-            color: #cbd5e0;
-            margin-right: 10px;
-            font-size: 18px;
-        }
-
-        .shift-item {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            gap: 15px;
-        }
-
-        .shift-item.dragging {
-            opacity: 0.5;
-            background: #edf2f7;
         }
     </style>
 </head>
@@ -512,20 +536,20 @@
     </div>
 
     <div class="tabs">
-        <div class="tab active" onclick="showTab('schedule')">排班表</div>
-        <div class="tab" onclick="showTab('employees')">員工管理</div>
-        <div class="tab" onclick="showTab('shifts')">班次設定</div>
-        <div class="tab" onclick="showTab('holidays')">假日日曆</div>
-        <div class="tab" onclick="showTab('peak-settings')">旺日設定</div>
+        <div class="tab active" onclick="switchTab('schedule')">排班表</div>
+        <div class="tab" onclick="switchTab('employees')">員工管理</div>
+        <div class="tab" onclick="switchTab('shifts')">班次設定</div>
+        <div class="tab" onclick="switchTab('holidays')">假日日曆</div>
+        <div class="tab" onclick="switchTab('peak-settings')">旺日設定</div>
     </div>
 
     <div class="main-content">
         <!-- 排班表分頁 -->
         <div id="schedule" class="tab-content active">
-            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-                <h2 style="color: white;">AI 智能排班</h2>
-                <p style="font-size: 14px; opacity: 0.9; margin-bottom: 15px;">根據員工可用時段、旺日/平日需求、以及台灣國定假日自動生成最佳排班</p>
-                <button class="btn" style="background: white; color: #667eea;" onclick="runAIScheduling()">開始 AI 排班</button>
+            <div class="ai-section">
+                <h2>AI 智能排班</h2>
+                <p>根據員工可用時段、旺日/平日需求、以及台灣國定假日自動生成最佳排班</p>
+                <button class="btn-ai" onclick="runAIScheduling()">開始 AI 排班</button>
             </div>
 
             <div class="card">
@@ -536,11 +560,6 @@
                         <span id="current-week-label" style="font-weight: 700; font-size: 1rem;"></span>
                         <button class="btn" style="background:#edf2f7" onclick="changeWeek(1)">下週 &gt;</button>
                     </div>
-                </div>
-
-                <div class="view-switcher">
-                    <button id="view-shift" class="view-btn active" onclick="switchView('shift')">班次導向 (時間在左)</button>
-                    <button id="view-person" class="view-btn" onclick="switchView('person')">人員導向 (姓名在左)</button>
                 </div>
                 
                 <div id="schedule-container">
@@ -678,7 +697,6 @@
 
         let schedules = JSON.parse(localStorage.getItem('schedules')) || {};
         let weatherData = {};
-        let currentView = 'shift'; // 'shift' or 'person'
 
         const holidays2025 = {
             '2025-01-01': '元旦', 
@@ -741,208 +759,142 @@
             if (document.getElementById('peak-weekend').checked && (day === 0 || day === 6)) return true;
             if (document.getElementById('peak-holiday').checked && holidays2025[dateStr]) return true;
             if (document.getElementById('peak-vacation').checked) {
-                const m = date.getMonth() + 1;
-                if (m === 1 || m === 2 || m === 7 || m === 8) return true;
+                const month = date.getMonth() + 1;
+                if (month === 1 || month === 2 || month === 7 || month === 8) return true;
             }
             return false;
         }
 
-        function showTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
-            if (tabId === 'holidays') renderCalendar();
-        }
-
-        function switchView(view) {
-            currentView = view;
-            document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(`view-${view}`).classList.add('active');
-            renderScheduleTable();
-        }
-
         function renderScheduleTable() {
             const container = document.getElementById('schedule-container');
+            const weekLabel = document.getElementById('current-week-label');
             const start = new Date(currentWeekStart);
-            const end = new Date(start); end.setDate(end.getDate() + 6);
-            document.getElementById('current-week-label').innerText = `${start.toLocaleDateString()} - ${end.toLocaleDateString()}`;
-            
-            // 更新月份標籤
-            const monthLabel = `${start.getMonth() + 1}月`;
-            
-            if (currentView === 'shift') {
-                renderShiftOrientedView(container, start, monthLabel);
-            } else {
-                renderPersonOrientedView(container, start, monthLabel);
-            }
-            updateStats();
-        }
+            const end = new Date(start);
+            end.setDate(end.getDate() + 6);
+            weekLabel.innerText = `${start.toLocaleDateString()} - ${end.toLocaleDateString()}`;
 
-        function renderShiftOrientedView(container, start, monthLabel) {
-            let html = `<div class="month-label">${monthLabel}</div><table class="schedule-table"><thead><tr><th>班次</th>`;
+            const monthName = (start.getMonth() + 1) + "月";
+            let html = `<div class="month-label">${monthName}</div>`;
+            html += `<table class="schedule-table"><thead><tr><th>班次</th>`;
+            
+            const days = ['週一', '週二', '週三', '週四', '週五', '週六', '週日'];
             for (let i = 0; i < 7; i++) {
-                const d = new Date(start); d.setDate(d.getDate() + i);
+                const d = new Date(start);
+                d.setDate(d.getDate() + i);
                 const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-                const weather = weatherData[dateStr];
                 const isPeak = isPeakDay(d);
-                const holidayName = holidays2025[dateStr];
-                
-                html += `<th class="${holidayName ? 'holiday-day' : (isPeak ? 'peak-day' : '')}">
-                    <div>${['週日','週一','週二','週三','週四','週五','週六'][d.getDay()]}</div>
-                    <div style="font-size:0.8rem; color:#718096">${d.getMonth()+1}/${d.getDate()}</div>
-                    ${weather ? `
-                        <div class="schedule-weather">
-                            <div class="weather-main">${getWeatherEmoji(weather.code)} ${weather.maxTemp}°</div>
-                            <div class="weather-detail">
-                                <span>${weather.minTemp}°</span>
-                                <span class="${weather.pop > 40 ? 'high-pop' : ''}">☔${weather.pop}%</span>
-                            </div>
-                        </div>
-                    ` : ''}
-                    <div style="font-size:10px; color:#f6ad55">${holidayName ? `<span style="color:#e53e3e; font-weight:bold">${holidayName}</span>` : (isPeak ? '旺日' : '平日')}</div>
-                </th>`;
+                const holiday = holidays2025[dateStr];
+                const weather = weatherData[dateStr];
+
+                html += `<th class="${isPeak ? 'peak-day' : ''} ${holiday ? 'holiday-day' : ''}">
+                    <div>${days[i]}</div>
+                    <div style="font-size:0.75rem; color:#718096">${(d.getMonth()+1)}/${d.getDate()}</div>`;
+                if (weather) {
+                    html += `<div class="schedule-weather">
+                        <div class="weather-main">${getWeatherEmoji(weather.code)} ${Math.round(weather.maxTemp)}°</div>
+                        <div class="weather-detail"><span>${Math.round(weather.minTemp)}°</span><span class="${weather.pop > 40 ? 'high-pop' : ''}">☔${weather.pop}%</span></div>
+                    </div>`;
+                }
+                if (holiday) html += `<div style="color:#e53e3e; font-size:9px">${holiday}</div>`;
+                if (isPeak) html += `<div style="color:#ed8936; font-size:9px">旺日</div>`;
+                html += `</th>`;
             }
             html += `</tr></thead><tbody>`;
 
             shifts.forEach(shift => {
-                html += `<tr><td style="background:#f8f9fc">
-                    <div class="shift-label">${shift.name}</div>
-                    <div class="shift-time">${shift.startTime} - ${shift.endTime}</div>
-                </td>`;
+                html += `<tr><td><div class="shift-label">${shift.name}</div><div class="shift-time">${shift.startTime} - ${shift.endTime}</div></td>`;
                 for (let i = 0; i < 7; i++) {
                     const d = new Date(start); d.setDate(d.getDate() + i);
-                    const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-                    const key = `${dateStr}_${shift.id}`;
-                    const assigned = schedules[key] || [];
+                    const dateStr = d.toISOString().split('T')[0];
                     const isPeak = isPeakDay(d);
                     const need = isPeak ? shift.peakNeed : shift.normalNeed;
-
-                    html += `<td class="${holidays2025[dateStr] ? 'holiday-day' : (isPeak ? 'peak-day' : '')}">
-                        <div id="cell-${key}" class="employee-container">
-                            ${assigned.map(empId => {
-                                const emp = employees.find(e => e.id === empId);
-                                return emp ? `<div class="employee-tag ${emp.type}">${emp.name}<span class="remove-btn" onclick="removeEmployee('${key}', ${emp.id})">×</span></div>` : '';
-                            }).join('')}
-                        </div>
-                        ${assigned.length < need ? `<div class="need-more">還需 ${need - assigned.length} 人</div>` : ''}
-                        <div class="quick-add-btn" onclick="showQuickAdd(event, '${key}')">+</div>
-                    </td>`;
-                }
-                html += `</tr>`;
-            });
-            html += `</tbody></table>`;
-            container.innerHTML = html;
-        }
-
-        function renderPersonOrientedView(container, start, monthLabel) {
-            let html = `<div class="month-label">${monthLabel}</div><table class="schedule-table person-view-table"><thead><tr><th class="person-name-col">員工姓名</th>`;
-            for (let i = 0; i < 7; i++) {
-                const d = new Date(start); d.setDate(d.getDate() + i);
-                const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-                const weather = weatherData[dateStr];
-                const holidayName = holidays2025[dateStr];
-                html += `<th style="width: 12.5%;">
-                    <div>${['週日','週一','週二','週三','週四','週五','週六'][d.getDay()]}</div>
-                    <div style="font-size:0.8rem; color:#718096">${d.getMonth()+1}/${d.getDate()}</div>
-                    ${weather ? `<div style="font-size:12px">${getWeatherEmoji(weather.code)} ${weather.maxTemp}°</div>` : ''}
-                    ${holidayName ? `<div style="font-size:10px; color:#e53e3e; font-weight:bold">${holidayName}</div>` : ''}
-                </th>`;
-            }
-            html += `</tr></thead><tbody>`;
-
-            employees.forEach(emp => {
-                html += `<tr><td class="person-name-col">${emp.name}<div style="font-size:10px; font-weight:normal; color:#718096">${emp.type==='fulltime'?'正職':'兼職'}</div></td>`;
-                for (let i = 0; i < 7; i++) {
-                    const d = new Date(start); d.setDate(d.getDate() + i);
-                    const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-                    const dayShifts = [];
-                    shifts.forEach(s => {
-                        const key = `${dateStr}_${s.id}`;
-                        if ((schedules[key] || []).includes(emp.id)) {
-                            dayShifts.push(s);
-                        }
+                    const key = `${dateStr}_${shift.id}`;
+                    const assigned = schedules[key] || [];
+                    html += `<td class="${isPeak ? 'peak-day' : ''}"><div id="cell-${key}" class="cell-content">`;
+                    assigned.forEach(empId => {
+                        const emp = employees.find(e => e.id == empId);
+                        if (emp) html += `<span class="employee-tag ${emp.type}">${emp.name}<span class="remove-btn" onclick="removeFromShift('${key}', ${emp.id})">×</span></span>`;
                     });
-
-                    html += `<td>
-                        ${dayShifts.map(s => `<div class="shift-bubble">${s.name}<br>${s.startTime}-${s.endTime}</div>`).join('')}
-                    </td>`;
+                    html += `</div>`;
+                    if (assigned.length < need) html += `<div class="need-more">還需 ${need - assigned.length} 人</div>`;
+                    html += `<div class="quick-add-btn" onclick="showQuickAdd(event, '${key}')">+</div></td>`;
                 }
                 html += `</tr>`;
             });
             html += `</tbody></table>`;
             container.innerHTML = html;
+            updateStats();
         }
 
         function showQuickAdd(event, key) {
             event.stopPropagation();
             const menu = document.getElementById('quick-add-menu');
             const assigned = schedules[key] || [];
-            const candidates = employees.filter(e => !assigned.includes(e.id));
-            
-            menu.innerHTML = candidates.length ? candidates.map(e => `
-                <div class="quick-add-item" onclick="addEmployeeToCell('${key}', ${e.id})">
-                    <span>${e.name}</span>
-                    <span style="font-size:10px; color:#aaa">${e.type==='fulltime'?'正職':'兼職'}</span>
-                </div>
-            `).join('') : '<div style="padding:10px; color:#999; font-size:12px">無可用員工</div>';
-            
-            menu.style.display = 'block';
-            menu.style.left = `${event.pageX}px`;
-            menu.style.top = `${event.pageY}px`;
+            let html = `<div style="font-weight:bold; margin-bottom:6px; padding:0 5px; color:#4a5568; font-size:12px">快速新增人員</div>`;
+            employees.forEach(emp => {
+                if (!assigned.includes(emp.id)) {
+                    html += `<div class="quick-add-item" onclick="addToShift('${key}', ${emp.id})"><span>${emp.name}</span><span style="font-size:9px; color:#aaa">${emp.type === 'fulltime' ? '正職' : '兼職'}</span></div>`;
+                }
+            });
+            menu.innerHTML = html; menu.style.display = 'block';
+            menu.style.left = event.pageX + 'px'; menu.style.top = event.pageY + 'px';
         }
 
-        function addEmployeeToCell(key, empId) {
+        function addToShift(key, empId) {
             if (!schedules[key]) schedules[key] = [];
-            if (!schedules[key].includes(empId)) {
-                schedules[key].push(empId);
-                renderScheduleTable();
-            }
+            if (!schedules[key].includes(empId)) { schedules[key].push(empId); renderScheduleTable(); }
             document.getElementById('quick-add-menu').style.display = 'none';
         }
 
-        function removeEmployee(key, empId) {
-            schedules[key] = schedules[key].filter(id => id !== empId);
-            renderScheduleTable();
+        function removeFromShift(key, empId) {
+            if (schedules[key]) { schedules[key] = schedules[key].filter(id => id != empId); renderScheduleTable(); }
         }
 
         function updateStats() {
             const statsContainer = document.getElementById('daily-stats');
             const start = new Date(currentWeekStart);
+            const days = ['週一', '週二', '週三', '週四', '週五', '週六', '週日'];
             let html = '';
             for (let i = 0; i < 7; i++) {
                 const d = new Date(start); d.setDate(d.getDate() + i);
                 const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
                 const isPeak = isPeakDay(d);
-                const holidayName = holidays2025[dateStr];
-                
-                let dailyTotal = 0;
-                shifts.forEach(s => {
-                    const assigned = schedules[`${dateStr}_${s.id}`] || [];
-                    const startParts = s.startTime.split(':');
-                    const endParts = s.endTime.split(':');
-                    let hours = (parseInt(endParts[0]) + parseInt(endParts[1])/60) - (parseInt(startParts[0]) + parseInt(startParts[1])/60);
-                    if (hours < 0) hours += 24;
-                    dailyTotal += assigned.length * hours;
+                const holiday = holidays2025[dateStr];
+                let dailyHours = 0;
+                shifts.forEach(shift => {
+                    const key = `${dateStr}_${shift.id}`;
+                    const assigned = schedules[key] || [];
+                    let startH = parseInt(shift.startTime.split(':')[0]);
+                    let endH = parseInt(shift.endTime.split(':')[0]);
+                    if (endH < startH) endH += 24;
+                    dailyHours += assigned.length * (endH - startH);
                 });
-
-                html += `<div class="stat-card ${holidayName ? 'holiday' : (isPeak ? 'peak' : '')}">
-                    <div class="stat-label">${['週日','週一','週二','週三','週四','週五','週六'][d.getDay()]} (${d.getMonth()+1}/${d.getDate()})</div>
-                    <div class="stat-value">${dailyTotal.toFixed(1)}h</div>
+                html += `<div class="stat-card ${isPeak ? 'peak' : ''} ${holiday ? 'holiday' : ''}">
+                    <div class="stat-label">${days[i]} (${(d.getMonth()+1)}/${d.getDate()})</div>
+                    <div class="stat-value">${dailyHours.toFixed(1)}h</div>
                     <div class="stat-label">當日總工時</div>
                 </div>`;
             }
             statsContainer.innerHTML = html;
         }
 
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+            if (tabId === 'holidays') renderCalendar();
+        }
+
         function renderCalendar() {
             const grid = document.getElementById('calendar-grid');
+            const monthLabel = document.getElementById('calendar-month-label');
             const year = calendarDate.getFullYear();
             const month = calendarDate.getMonth();
-            document.getElementById('calendar-month-label').innerText = `${year}年 ${month + 1}月`;
+            monthLabel.innerText = `${year}年 ${month + 1}月`;
 
             // 清除舊日期 (保留 header)
-            const headers = grid.querySelectorAll('.day-header');
+            const headers = Array.from(grid.querySelectorAll('.day-header'));
             grid.innerHTML = '';
             headers.forEach(h => grid.appendChild(h));
 
@@ -959,6 +911,7 @@
 
             for (let i = 1; i <= daysInMonth; i++) {
                 const d = new Date(year, month, i);
+                // 修正時區導致的日期偏差問題
                 const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
                 const cell = document.createElement('div');
                 cell.className = 'day-cell';
@@ -1020,12 +973,52 @@
         function saveShifts() { localStorage.setItem('shifts', JSON.stringify(shifts)); }
 
         function renderEmployeeList() {
-            const list = document.getElementById('employee-list'); document.getElementById('emp-count').innerText = employees.length; list.innerHTML = '';
+            const list = document.getElementById('employee-list'); 
+            document.getElementById('emp-count').innerText = employees.length; 
+            
+            if (employees.length === 0) {
+                list.innerHTML = '<div style="text-align:center; padding:30px; color:#a0aec0;">尚無員工資料</div>';
+                return;
+            }
+
+            let html = `
+                <div class="employee-table-container">
+                    <table class="employee-table">
+                        <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>類型</th>
+                                <th>每週上限</th>
+                                <th>可用時段</th>
+                                <th style="text-align:right">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+
             employees.forEach((emp, index) => {
-                const card = document.createElement('div'); card.className = `employee-card ${emp.type}`;
-                card.innerHTML = `<div class="header" style="display:flex; justify-content:space-between"><div class="name">${emp.name}</div><div class="type-badge" style="font-size:10px; padding:2px 6px; border-radius:4px; background:${emp.type==='fulltime'?'#d4edda':'#fff3cd'}">${emp.type==='fulltime'?'正職':'兼職'}</div></div><div class="info">每週最多 ${emp.maxDays} 天 / ${emp.maxHours} 小時</div><div class="actions" style="position:absolute; top:10px; right:10px"><button style="background:none; border:none; cursor:pointer" onclick="deleteEmployee(${index})">🗑️</button></div>`;
-                list.appendChild(card);
+                const days = ['日', '一', '二', '三', '四', '五', '六'];
+                let availHtml = '';
+                [1, 2, 3, 4, 5, 6, 0].forEach(d => {
+                    const isActive = emp.availability.includes(d);
+                    availHtml += `<span class="avail-dot ${isActive ? 'active' : ''}">${days[d]}</span>`;
+                });
+
+                html += `
+                    <tr>
+                        <td style="font-weight:700; color:#2d3748">${emp.name}</td>
+                        <td><span class="type-badge ${emp.type === 'fulltime' ? 'type-fulltime' : 'type-parttime'}">${emp.type === 'fulltime' ? '正職' : '兼職'}</span></td>
+                        <td style="color:#4a5568">${emp.maxDays}天 / ${emp.maxHours}小時</td>
+                        <td>${availHtml}</td>
+                        <td style="text-align:right">
+                            <button class="btn" style="padding:4px 8px; background:#fff5f5; color:#e53e3e; border:1px solid #feb2b2; font-size:12px" onclick="deleteEmployee(${index})">刪除</button>
+                        </td>
+                    </tr>
+                `;
             });
+
+            html += `</tbody></table></div>`;
+            list.innerHTML = html;
         }
 
         function addEmployee() {
@@ -1037,26 +1030,6 @@
         }
 
         function deleteEmployee(index) { if (confirm('確定刪除？')) { employees.splice(index, 1); localStorage.setItem('employees', JSON.stringify(employees)); renderEmployeeList(); } }
-
-        function exportCSV() {
-            const start = new Date(currentWeekStart);
-            let csv = "\uFEFF班次,週一,週二,週三,週四,週五,週六,週日\n";
-            shifts.forEach(shift => {
-                csv += `${shift.name} (${shift.startTime}-${shift.endTime}),`;
-                for (let i = 0; i < 7; i++) {
-                    const d = new Date(start); d.setDate(d.getDate() + i);
-                    const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-                    const assigned = (schedules[`${dateStr}_${shift.id}`] || []).map(id => employees.find(e => e.id === id)?.name || '').join(' ');
-                    csv += `"${assigned}",`;
-                }
-                csv += "\n";
-            });
-            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-            const link = document.createElement("a");
-            link.href = URL.createObjectURL(blob);
-            link.download = `排班表_${start.toLocaleDateString()}.csv`;
-            link.click();
-        }
 
         function runAIScheduling() {
             const start = new Date(currentWeekStart); const newSchedules = { ...schedules };
