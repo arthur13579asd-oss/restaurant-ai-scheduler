@@ -48,12 +48,12 @@
         .schedule-table th, .schedule-table td { border: 1px solid var(--border); padding: 12px; text-align: center; vertical-align: top; }
         .schedule-table th { background: #f8fafc; font-weight: 700; color: #4a5568; }
         
-        /* 人員導向視圖縮小與緊湊化 */
-        .person-view-table th, .person-view-table td { padding: 4px 2px; font-size: 0.8rem; }
-        .person-view-table .employee-tag { padding: 2px 4px; font-size: 0.7rem; margin: 1px; gap: 2px; }
-        .person-view-table .quick-add-btn { width: 20px; height: 20px; font-size: 0.9rem; margin: 2px auto 0; }
+        /* 人員導向視圖縮小 30% 並保持緊湊 */
+        .person-view-table th, .person-view-table td { padding: 4px 2px; font-size: 0.75rem; }
+        .person-view-table .employee-tag { padding: 2px 4px; font-size: 0.65rem; margin: 1px; gap: 2px; }
+        .person-view-table .quick-add-btn { width: 18px; height: 18px; font-size: 0.8rem; margin: 2px auto 0; }
         .person-view-table .cell-content { min-height: 30px; gap: 2px; }
-        .person-view-table .employee-tag div[style*="font-size:9px"] { font-size: 8px !important; margin-top: 0 !important; }
+        .person-view-table .employee-tag div[style*="font-size:9px"] { font-size: 7px !important; margin-top: 0 !important; }
 
         .schedule-weather { margin-top: 6px; padding: 6px; background: rgba(255,255,255,0.8); border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
         .weather-main { font-size: 1.1rem; font-weight: 700; display: flex; justify-content: center; align-items: center; gap: 4px; }
@@ -135,10 +135,8 @@
 
     <div class="main-content">
         <div id="schedule" class="tab-content active">
-            <div class="ai-section card">
-                <h2>AI 智能排班</h2>
-                <p>根據員工可用時段、旺日/平日需求、以及台灣國定假日自動生成最佳排班</p>
-                <button class="btn-ai" onclick="runAIScheduling()">開始 AI 排班</button>
+               <div style="text-align: center; margin-bottom: 20px;">
+                <button class="btn-ai" onclick="runAIScheduling()" style="width: 100%; max-width: 400px; justify-content: center;">✨ 一鍵 AI 智能排班</button>
             </div>
 
             <div class="card">
