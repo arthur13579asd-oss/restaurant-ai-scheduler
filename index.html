@@ -679,7 +679,7 @@
         }
 
         function isPeakDay(date) {
-            const dateStr = date.toISOString().split('T')[0];
+            const dateStr = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
             const day = date.getDay();
             if (document.getElementById('peak-weekend').checked && (day === 0 || day === 6)) return true;
             if (document.getElementById('peak-holiday').checked && holidays2025[dateStr]) return true;
@@ -706,7 +706,7 @@
             for (let i = 0; i < 7; i++) {
                 const d = new Date(start);
                 d.setDate(d.getDate() + i);
-                const dateStr = d.toISOString().split('T')[0];
+                const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
                 const isPeak = isPeakDay(d);
                 const holiday = holidays2025[dateStr];
                 const weather = weatherData[dateStr];
@@ -782,7 +782,7 @@
             let html = '';
             for (let i = 0; i < 7; i++) {
                 const d = new Date(start); d.setDate(d.getDate() + i);
-                const dateStr = d.toISOString().split('T')[0];
+                const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
                 const isPeak = isPeakDay(d);
                 const holiday = holidays2025[dateStr];
                 let dailyHours = 0;
@@ -836,7 +836,8 @@
 
             for (let i = 1; i <= daysInMonth; i++) {
                 const d = new Date(year, month, i);
-                const dateStr = d.toISOString().split('T')[0];
+                // 修正時區導致的日期偏差問題
+                const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
                 const cell = document.createElement('div');
                 cell.className = 'day-cell';
                 if (isPeakDay(d)) cell.classList.add('peak');
@@ -855,7 +856,18 @@
 
         function changeWeek(offset) { currentWeekStart.setDate(currentWeekStart.getDate() + (offset * 7)); renderScheduleTable(); }
         function saveSchedule() { localStorage.setItem('schedules', JSON.stringify(schedules)); alert('排班已儲存！'); }
-        function clearWeekSchedule() { if (confirm('確定要清空本週所有排班嗎？')) { const start = new Date(currentWeekStart); for (let i = 0; i < 7; i++) { const d = new Date(start); d.setDate(d.getDate() + i); const dateStr = d.toISOString().split('T')[0]; shifts.forEach(s => delete schedules[`${dateStr}_${s.id}`]); } renderScheduleTable(); } }
+        function clearWeekSchedule() { 
+            if (confirm('確定要清空本週所有排班嗎？')) { 
+                const start = new Date(currentWeekStart); 
+                for (let i = 0; i < 7; i++) { 
+                    const d = new Date(start); 
+                    d.setDate(d.getDate() + i); 
+                    const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+                    shifts.forEach(s => delete schedules[`${dateStr}_${s.id}`]); 
+                } 
+                renderScheduleTable(); 
+            } 
+        }
 
         function renderShiftList() {
             const list = document.getElementById('shift-list'); list.innerHTML = '';
@@ -902,11 +914,13 @@
         function runAIScheduling() {
             const start = new Date(currentWeekStart); const newSchedules = { ...schedules };
             for (let i = 0; i < 7; i++) {
-                const d = new Date(start); d.setDate(d.getDate() + i); const dateStr = d.toISOString().split('T')[0];
+                const d = new Date(start); d.setDate(d.getDate() + i); 
+                const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
                 shifts.forEach(s => delete newSchedules[`${dateStr}_${s.id}`]);
             }
             for (let i = 0; i < 7; i++) {
-                const d = new Date(start); d.setDate(d.getDate() + i); const dateStr = d.toISOString().split('T')[0];
+                const d = new Date(start); d.setDate(d.getDate() + i); 
+                const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
                 const day = d.getDay(); const isPeak = isPeakDay(d);
                 shifts.forEach(shift => {
                     const need = isPeak ? shift.peakNeed : shift.normalNeed; const key = `${dateStr}_${shift.id}`; newSchedules[key] = [];
