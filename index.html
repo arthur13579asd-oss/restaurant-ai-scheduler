@@ -517,12 +517,12 @@
 
         function deleteEmployee(index) { if (confirm('確定刪除？')) { employees.splice(index, 1); localStorage.setItem('employees', JSON.stringify(employees)); renderEmployeeList(); } }
 
-        function createTimeSelect(currentValue, onChange) {
+        function createTimeSelect(index, field, currentValue) {
             const [h, m] = currentValue.split(':');
             let html = `<div style="display:flex; gap:2px; align-items:center;">`;
             
             // 小時選單
-            html += `<select onchange="const m='${m}'; ${onChange}(this.value + ':' + m)" style="padding:2px 4px; border:none; background:transparent; font-weight:700; color:#2b6cb0; cursor:pointer; font-size:13px;">`;
+            html += `<select onchange="updateShift(${index}, '${field}', this.value + ':' + '${m}')" style="padding:2px 4px; border:none; background:transparent; font-weight:700; color:#2b6cb0; cursor:pointer; font-size:13px;">`;
             for(let i=0; i<24; i++) {
                 const val = i.toString().padStart(2, '0');
                 html += `<option value="${val}" ${val === h ? 'selected' : ''}>${val}</option>`;
@@ -530,7 +530,7 @@
             html += `</select><span style="color:#2b6cb0; font-weight:700;">:</span>`;
             
             // 分鐘選單
-            html += `<select onchange="const h='${h}'; ${onChange}(h + ':' + this.value)" style="padding:2px 4px; border:none; background:transparent; font-weight:700; color:#2b6cb0; cursor:pointer; font-size:13px;">`;
+            html += `<select onchange="updateShift(${index}, '${field}', '${h}' + ':' + this.value)" style="padding:2px 4px; border:none; background:transparent; font-weight:700; color:#2b6cb0; cursor:pointer; font-size:13px;">`;
             ['00', '15', '30', '45'].forEach(val => {
                 html += `<option value="${val}" ${val === m ? 'selected' : ''}>${val}</option>`;
             });
@@ -543,8 +543,8 @@
             shifts.forEach((shift, index) => {
                 const item = document.createElement('div'); item.className = 'shift-item'; item.draggable = true;
                 
-                const startTimeSelect = createTimeSelect(shift.startTime, `(val) => updateShift(${index}, 'startTime', val)`);
-                const endTimeSelect = createTimeSelect(shift.endTime, `(val) => updateShift(${index}, 'endTime', val)`);
+                const startTimeSelect = createTimeSelect(index, 'startTime', shift.startTime);
+                const endTimeSelect = createTimeSelect(index, 'endTime', shift.endTime);
 
                 item.innerHTML = `
                     <div class="drag-handle">☰</div>
